@@ -1,0 +1,115 @@
+@token = 821a4d359b5b747dbbc934d742ab383ffc424b0bf956b53c5fe170d7eb94686327f7296b509f97886b295840b68f18591e5ca8369149f68c99b90413704356312169814f4fe031f667e074c8df08ff338ba275b19e00fdc2e6891961b5f19d81ef51d525772849d0f729678edd3985fc2125fe57dab56bc768991c530fb3b5f9
+@url = http://localhost:1337/api
+
+# Endpoint Collection Type
+{
+    "blogs": {
+        "title": "string",
+        "description": "string",
+        "image": "file"
+    },
+    "savings": {
+        "produst_name": "string",
+        "description": "string",
+        "is_active": "bool"
+    }, 
+    "loans": {
+        "produst_name": "string",
+        "description": "string",
+        "is_active": "bool"
+    },
+    "deposits": {
+        "produst_name": "string",
+        "description": "string",
+        "is_active": "bool"
+    },
+    "saving-applications": {
+        "name": "string",
+        "phone": "string",
+        "address": "string",
+        "amount": "string",
+        "ktp": "string",
+        "email": "email"
+    },
+    "loan-applications": {
+        "name": "string",
+        "phone": "string",
+        "address": "string",
+        "amount": "string",
+        "period": "int",
+        "ktp": "string",
+        "email": "email"
+    }, 
+    "deposit-application": {
+        "name": "string",
+        "phone": "string",
+        "address": "string",
+        "amount": "string",
+        "period": "int",
+        "ktp": "string",
+        "email": "email"
+    },
+    "company-social-medias": {
+        "name": "string",
+        "url": "string",
+        "icon": "string"
+    },
+    "company-galleries": {
+        "name": "string",
+        "image": "file"
+    },
+    "company-carousels": {
+        "name": "string",
+        "image": "file"
+    }
+}
+
+### Endpoint Single Type
+{
+    "company-profile": {
+        "company_name": "string",
+        "email": "email",
+        "address": "string",
+        "phone": "string",
+        "logo": "file"
+    }
+}
+
+### Headers
+Authorization: Bearer {{ token }}
+
+### Find All
+GET {{ url }}/blogs?populate[blocks][populate]=*
+Authorization: Bearer {{ token }}
+
+### Find One
+GET {{ url }}/endpoint/id
+
+### Create
+POST {{ url }}/saving-applications
+Authorization: Bearer {{ token }}
+Content-Type: application/json
+
+{
+    "data": {
+        "name": "string",
+        "phone": "string",
+        "address": "string",
+        "amount": "string",
+        "ktp": "string",
+        "email": "aryapn200605@gmail.com"
+    }
+}
+
+### Update`
+PUT {{ url }}/endpoint/id
+Content-Type: application/json
+
+{
+    "data": {
+        "field": "value"
+    }
+}
+
+### Delete
+DELETE {{ url }}/endpoint/id
